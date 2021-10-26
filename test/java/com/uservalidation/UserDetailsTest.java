@@ -45,4 +45,25 @@ public class UserDetailsTest {
         boolean result = userDetails.validateEmail("abc.xyz@gmail");
         Assertions.assertFalse(result);
     }
+
+    @Test
+    void givenMobileNumber_CheckForValidation_ReturnTrue() {
+        UserDetails userDetails = new UserDetails();
+        boolean result = userDetails.validateMobileNumber("98 9908229348");
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    void givenNumberWithoutCC_CheckForValidation_ReturnFalse() {
+        UserDetails userDetails = new UserDetails();
+        boolean result = userDetails.validateMobileNumber("9908229348");
+        Assertions.assertFalse(result);
+    }
+
+    @Test
+    void givenShortNumber_CheckForValidation_ReturnFalse() {
+        UserDetails userDetails = new UserDetails();
+        boolean result = userDetails.validateMobileNumber("98 990822");
+        Assertions.assertFalse(result);
+    }
 }
