@@ -3,10 +3,10 @@ package com.uservalidation;
 import java.util.regex.Pattern;
 
 public class UserDetails {
-    private final static String FirstName = "([A-Z]{1}[a-zA-Z]{2,})$";
+    private final static String FirstName = "([A-Z][a-zA-Z]{2,})$";
 
-    public boolean validateFirstName(String fName){
+    public boolean validateName(String name){
         Pattern pattern = Pattern.compile(FirstName);
-        return pattern.matcher(fName).matches();
+        return pattern.matcher(name).matches();
     }
 }
