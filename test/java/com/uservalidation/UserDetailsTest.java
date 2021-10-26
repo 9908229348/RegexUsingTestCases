@@ -5,23 +5,30 @@ import org.junit.jupiter.api.Assertions;
 
 public class UserDetailsTest {
     @Test
-    void givenFirstName_CheckValidation_ReturnTrue() {
+    void givenFirstName_CheckValidationForFName_ReturnTrue() {
         UserDetails userDetails = new UserDetails();
-        boolean result = userDetails.validateFirstName("Sravanthi");
+        boolean result = userDetails.validateName("Sravanthi");
         Assertions.assertTrue(result);
     }
 
     @Test
-    void givenFirstLetterSmall_CheckForValidation_ReturnFalse() {
+    void givenFirstLetterSmall_CheckForValidationForFName_ReturnFalse() {
         UserDetails userDetails = new UserDetails();
-        boolean result = userDetails.validateFirstName("sravanthi");
+        boolean result = userDetails.validateName("sravanthi");
         Assertions.assertFalse(result);
     }
 
     @Test
-    void givenTwoLetters_CheckForValidation_ReturnFalse() {
+    void givenTwoLetters_CheckForValidationForLName_ReturnFalse() {
         UserDetails userDetails = new UserDetails();
-        boolean result = userDetails.validateFirstName("Sr");
+        boolean result = userDetails.validateName("Sr");
+        Assertions.assertFalse(result);
+    }
+
+    @Test
+    void givenTwoSmalls_CheckForValidationForLName_RerunFalse() {
+        UserDetails userDetails = new UserDetails();
+        boolean result = userDetails.validateName("sr");
         Assertions.assertFalse(result);
     }
 }
