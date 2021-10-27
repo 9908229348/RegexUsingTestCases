@@ -28,10 +28,18 @@ public class ValidatePassWordTest {
     }
 
     @Test
-    void givenOneNumeric_CheckForValidation_ReturnTrue() {
+    void givenOneNumeric_CheckForValidation_ReturnFalse() {
+        UserDetails userDetails = new UserDetails();
+        boolean result = userDetails.validatePassWord("Sravanthi446");
+        Assertions.assertFalse(result);
+    }
+
+    @Test
+    void givenPassWordWithSpecialCharacter_CheckValidation_ReturnTrue() {
         UserDetails userDetails = new UserDetails();
         boolean result = userDetails.validatePassWord("Sravanthi@446");
         Assertions.assertTrue(result);
     }
 }
+
 
