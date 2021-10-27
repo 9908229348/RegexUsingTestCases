@@ -26,5 +26,4 @@ public class UserDetails {
         Pattern pattern = Pattern.compile(PASSWORD);
         return pattern.matcher(passWord).matches();
     }
-
 }
