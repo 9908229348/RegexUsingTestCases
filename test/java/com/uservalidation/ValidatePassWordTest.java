@@ -14,9 +14,16 @@ public class ValidatePassWordTest {
     }
 
     @Test
-    void givenLongPassWord_CheckForValidation_ReturnTrue() {
+    void givenAllSmalls_CheckForOptions_ReturnFalse() {
         UserDetails userDetails = new UserDetails();
         boolean result = userDetails.validatePassWord("sravanthi");
+        Assertions.assertFalse(result);
+    }
+
+    @Test
+    void givenOneCapital_CheckForValidation_ReturnTrue() {
+        UserDetails userDetails = new UserDetails();
+        boolean result = userDetails.validatePassWord("Sravanthi@446");
         Assertions.assertTrue(result);
     }
 }
