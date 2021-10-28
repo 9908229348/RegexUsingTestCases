@@ -25,4 +25,8 @@ public class UserDetails {
         else
             return "Sad";
     }
+    public boolean validateEmail(String email){
+        Pattern pattern = Pattern.compile(EMAIL_PATTERN);
+        return pattern.matcher(email).matches();
+    }
 }
